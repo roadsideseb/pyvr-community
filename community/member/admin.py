@@ -10,7 +10,7 @@ class MeetupUserAdmin(admin.ModelAdmin):
 
 @admin.register(models.Member)
 class MemberAdmin(admin.ModelAdmin):
-    read_only_fields = ('uuid',)
+    readonly_fields = ('uuid',)
     list_display = ('name', 'email', 'twitter', 'github')
     search_fields = ('name',)
 

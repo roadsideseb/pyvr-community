@@ -6,5 +6,6 @@ from . import models
 
 @admin.register(models.Company)
 class ModelAdmin(admin.ModelAdmin):
-    read_only_fields = ('uuid',)
-    list_display = ('name',)
+    readonly_fields = ('uuid',)
+    list_display = ('name', 'website')
+    search_fields = ('name',)
