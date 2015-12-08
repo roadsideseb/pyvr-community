@@ -29,7 +29,10 @@ class SocialLink(models.Model):
     @classmethod
     def get_site_from_url(cls, url):
         hostname = urlparse(url).hostname
-        name = hostname.split('.')[-2]
+        try:
+            name = hostname.split('.')[-2]
+        except (AttributeError, TypeError):
+            return None
         if name in [s for s, __ in cls.SITES]:
             return name
         return None
