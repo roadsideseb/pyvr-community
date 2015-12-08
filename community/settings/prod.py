@@ -10,6 +10,8 @@ class Production(Base):
     DEBUG = False
     TEMPLATE_DEBUG = False
 
+    STATIC_ROOT = '/app/static'
+
     EMAIL_SUBJECT_PREFIX = '[community][Prod] '
 
     INSTALLED_APPS = Base.INSTALLED_APPS + [
