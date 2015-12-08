@@ -9,6 +9,9 @@ django-secure==1.0
 django-braces==1.4.0
 django-crispy-forms==1.4.0
 
+requests==2.8.1
+beautifulsoup4==4.4.1
+
 # images
 Pillow==2.4.0
 

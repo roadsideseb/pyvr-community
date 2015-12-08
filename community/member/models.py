@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import uuid
 
+from urllib.parse import urlparse
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.postgres.fields import JSONField, ArrayField
@@ -23,6 +25,14 @@ class SocialLink(models.Model):
 
     site = models.CharField(_('site'), max_length=100, choices=SITES)
     url = models.URLField(_('URL'))
+
+    @classmethod
+    def get_site_from_url(cls, url):
+        hostname = urlparse(url).hostname
+        name = hostname.split('.')[-2]
+        if name in [s for s, __ in cls.SITES]:
+            return name
+        return None
 
     class Meta:
         verbose_name = _('social link')
@@ -48,6 +58,10 @@ class MeetupUser(models.Model):
                                           related_name='meetup_users')
 
     raw_data = JSONField(_('meetup metadata'), default=dict)
+
+    def get_meetup_page(self, group):
+        return 'http://www.meetup.com/{group}/members/{id}/'.format(
+            group=group, id=self.meetup_id)
 
     def __str__(self):
         return "{u.name} ({u.meetup_id})".format(u=self)
