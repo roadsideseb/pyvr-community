@@ -9,6 +9,8 @@ class Company(models.Model):
     uuid = models.UUIDField(_('uuid'), default=uuid.uuid4, unique=True)
     name = models.CharField(_('name'), max_length=300)
 
+    website = models.URLField(_('website'), blank=True)
+
     def __str__(self):
         return self.name
 
