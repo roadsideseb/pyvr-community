@@ -5,7 +5,8 @@ from . import models
 
 @admin.register(models.MeetupUser)
 class MeetupUserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'location')
+    search_fields = ('name',)
 
 
 @admin.register(models.Member)

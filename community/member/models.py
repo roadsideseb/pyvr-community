@@ -65,6 +65,8 @@ class Member(models.Model):
     twitter = models.CharField(_('twitter handle'), max_length=15, blank=True)
     github = models.CharField(_('github handle'), max_length=100, blank=True)
 
+    linkedin = models.URLField(_('LinkeIn URL'), blank=True)
+
     current_position = models.CharField(_('current position'),
                                         max_length=400,
                                         blank=True)
