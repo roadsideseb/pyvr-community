@@ -71,7 +71,9 @@ class Member(models.Model):
 
     meetup_user = models.OneToOneField('MeetupUser',
                                        verbose_name=_('meetup user'),
-                                       related_name='member')
+                                       related_name='member',
+                                       null=True,
+                                       blank=True)
 
     company = models.ForeignKey('company.Company',
                                 verbose_name=_('company'),
