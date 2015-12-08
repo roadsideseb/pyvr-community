@@ -34,6 +34,9 @@ class SocialLink(models.Model):
             return name
         return None
 
+    def __str__(self):
+        return self.url
+
     class Meta:
         verbose_name = _('social link')
         verbose_name_plural = _('social links')

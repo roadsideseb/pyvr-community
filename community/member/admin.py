@@ -6,6 +6,7 @@ from . import models
 @admin.register(models.MeetupUser)
 class MeetupUserAdmin(admin.ModelAdmin):
     list_display = ('name', 'location')
+    list_filter = ('location',)
     search_fields = ('name',)
 
 
@@ -13,6 +14,7 @@ class MeetupUserAdmin(admin.ModelAdmin):
 class MemberAdmin(admin.ModelAdmin):
     readonly_fields = ('uuid',)
     list_display = ('name', 'email', 'twitter', 'github')
+    list_filter = ('company',)
     search_fields = ('name',)
 
 
