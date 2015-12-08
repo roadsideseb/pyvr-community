@@ -1,0 +1,32 @@
+-r requirements.txt
+
+# development tools
+Werkzeug==0.11.2
+django-debug-toolbar==1.4
+
+# python shell & debugger
+pudb==2014.1
+ipython==2.0.0
+
+# documentation
+Sphinx==1.2.2
+docutils==0.8.1
+sphinx_rtd_theme==0.1.6
+
+# Testing
+mock==1.0.1
+WebTest==1.3.4
+django-webtest==1.7.7
+factory-boy==2.4.1
+coverage==3.7.1
+coveralls==0.4.1
+selenium==2.42.1
+splinter==0.6.0
+
+# pytest & plugins
+pytest==2.5.2
+pytest-cache==1.0
+pytest-cov==1.6
+pytest-django==2.6.2
+pytest-pep8==1.0.5
+pytest-splinter==1.0.2

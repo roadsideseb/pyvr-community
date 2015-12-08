@@ -1,0 +1,7 @@
+*.py[co]
+*.sw[a-z]
+
+.env
+
+web/community/node_modules/
+web/community/public/

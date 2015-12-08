@@ -1,0 +1,26 @@
+Django==1.9
+
+https://github.com/jezdez/django-configurations/archive/master.zip
+dj-database-url==0.3.0
+django-cache-url==1.0.0
+django-extensions==1.5.9
+django-secure==1.0
+
+django-braces==1.4.0
+django-crispy-forms==1.4.0
+
+# images
+Pillow==2.4.0
+
+# Postgres client driver
+psycopg2==2.5.3
+
+structlog==0.4.1
+raven==5.2.0
+
+# caching backend
+django-redis-cache==0.13.0
+python-dateutil==2.4.2
+
+uwsgi==2.0.11.2
+newrelic==2.54.0.41

@@ -1,0 +1,37 @@
+language: python
+
+python:
+  - '3.4'
+
+addons:
+    postgresql: "9.3"
+
+services:
+    - redis-server
+
+cache:
+  directories:
+    - $HOME/.pip-cache
+
+env:
+  global:
+    - DJANGO_SECRET_KEY='secret key just for testing'
+    - DJANGO_CONFIGURATION='Travis'
+    - PIP_OPTS='--download-cache=$HOME/.pip-cache'
+  matrix:
+    - PYTEST_OPTS="--pep8 --cov community"
+    - PYTEST_OPTS="-m browser"
+
+before_install:
+  - cd community
+
+install:
+  - pip install -r deploy/requirements/ci.txt $PIP_OPTS
+
+before_script:
+  - psql -U postgres -c "create extension postgis"
+  - psql -U postgres -c "create user test_app with superuser password 'testpassword';"
+  - psql -U postgres -c "create database test_db;"
+
+script:
+  - py.test $PYTEST_OPTS
