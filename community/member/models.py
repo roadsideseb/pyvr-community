@@ -103,6 +103,12 @@ class Member(models.Model):
                                 null=True,
                                 blank=True)
 
+    notes = models.TextField(_('notes'), blank=True)
+    tags = ArrayField(models.CharField(max_length=50),
+                      verbose_name=_('tags'),
+                      default=list,
+                      blank=True)
+
     def __str__(self):
         return self.name
 
