@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}">
     <head>
-        <title>{% block title %}Project Title{% endblock %}</title>
+        <title>{% block title %}Vancouver Python Community{% endblock %}</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta name="created" content="{% now "jS M Y h:i" %}" />
         <meta name="description" content="{% block description %}{% endblock %}" />
@@ -16,14 +16,8 @@
         <![endif]-->
 
         {% block css %}
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
-        {% comment %}
-        <link href="{% static "project_subdir/css/project.css" %}" rel="stylesheet">
-        {% endcomment %}
+            <link rel="stylesheet" href="//bootswatch.com/yeti/bootstrap.min.css">
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
         {% endblock %}
 
         <nav class="navbar navbar-default" role="navigation">
@@ -38,23 +32,35 @@
                         <span class="icon-bar"></span>
 
                     </button>
-                    <a class="navbar-brand" href="/">{% trans "Project" %}</a>
+                    <a class="navbar-brand" href="/">Vancouver Python Community</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
 
                         {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'admin:logout' %}">{% trans "Logout" %}</a></li>
+                            <li>
+                                <a href="{% url "admin:logout" %}">
+                                    {% trans "Logout" %}
+                                </a>
+                            </li>
                         {% else %}
-                            <li><a href="{% url 'admin:login' %}">{% trans "Log In" %}</a></li>
+                            <li>
+                                <a href="{% url "admin:login" %}">
+                                    {% trans "Log In" %}
+                                </a>
+                            </li>
                         {% endif %}
+
                     </ul>
                 </div>
             </div>
         </nav>
 
+        {% block body %}
         <div class="container">
             
           {% if messages %}
@@ -68,7 +74,8 @@
           {% endblock content %}
 
         </div> <!-- /container -->
-    
+        {% endblock %}
+
         {% block modal %}{% endblock modal %}
 
         {% block javascript %}
