@@ -19,7 +19,7 @@ class Production(Base):
     ]
 
     DATABASES = values.DatabaseURLValue()
-    ALLOWED_HOSTS = ['pyvr-community.herokuapp.com']
+    ALLOWED_HOSTS = ['community.pyvr.org', 'pyvr-community.herokuapp.com']
 
     RAVEN_DSN = values.Value()
 
