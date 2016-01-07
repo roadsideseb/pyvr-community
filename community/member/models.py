@@ -109,9 +109,12 @@ class Member(models.Model):
                       default=list,
                       blank=True)
 
+    completeness_score = models.IntegerField(_('completeness score'), default=0)
+
     def __str__(self):
         return self.name
 
     class Meta:
+        ordering = ('name',)
         verbose_name = _('member')
         verbose_name_plural = _('members')

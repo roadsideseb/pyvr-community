@@ -96,6 +96,8 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
         'djangosecure',
 
         'django_extensions',
+        'rest_framework',
+        'rest_framework.authtoken',
 
         'community.users',
         'community.member',

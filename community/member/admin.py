@@ -44,7 +44,7 @@ class MeetupUserAdmin(admin.ModelAdmin):
 class MemberAdmin(admin.ModelAdmin):
     readonly_fields = ('uuid',)
     list_display = ('name', 'email', 'twitter', 'github')
-    list_filter = ('company', MemberTagListFilter)
+    list_filter = ('completeness_score', 'company', MemberTagListFilter)
     search_fields = ('name',)
 
 

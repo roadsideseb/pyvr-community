@@ -8,8 +8,10 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 
-    url(r'^', include('community.users.urls',
-                      namespace='users')),
+    url(r'^', include('community.member.api_urls', namespace='api')),
+
+    url(r'^', include('community.users.urls', namespace='users')),
+
     url(r'^admin/', include(admin.site.urls)),
 ]
 
@@ -26,4 +28,7 @@ if settings.DEBUG:
     # Do explicit setup of django debug toolbar
     import debug_toolbar
     urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls))]
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^api-auth/',
+            include('rest_framework.urls', namespace='rest_framework'))
+    ]
