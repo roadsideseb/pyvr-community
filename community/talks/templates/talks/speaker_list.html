@@ -2,22 +2,34 @@
 {% load i18n %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{% trans "Speakers" %}</h1>
+        </div>
+    </div>
+</div>
 
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>{% trans "Name" %}</th>
-        <th>{% trans "Email" %}</th>
-        <th>{% trans "Talk Proposals" %}</th>
-        <th>{% trans "Talk Given" %}</th>
-    </tr>
-    {% for speaker in speakers %}
-        <tr>
-            <td>{{ speaker.name }}</td>
-            <td>{{ speaker.email }}</td>
-            <td>{{ speaker.proposed_talks|length }}</td>
-            <td>{{ speaker.presented_talks|length }}</td>
-        </tr>
-    {% endfor %}
-</table>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Email" %}</th>
+                    <th>{% trans "Talk Proposals" %}</th>
+                    <th>{% trans "Talk Given" %}</th>
+                </tr>
+                {% for speaker in speakers %}
+                    <tr>
+                        <td>{{ speaker.name }}</td>
+                        <td>{{ speaker.email }}</td>
+                        <td>{{ speaker.proposed_talks|length }}</td>
+                        <td>{{ speaker.presented_talks|length }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

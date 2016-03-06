@@ -2,22 +2,35 @@
 {% load i18n %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{% trans "Talks" %}</h1>
+        </div>
+    </div>
+</div>
 
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>{% trans "Title" %}</th>
-        <th>{% trans "Speaker" %}</th>
-        <th>{% trans "Email" %}</th>
-        <th>{% trans "Presented" %}</th>
-    </tr>
-    {% for talk in talks %}
-        <tr>
-            <td>{{ talk.title }}</td>
-            <td>{{ talk.speaker.name }}</td>
-            <td>{{ talk.speaker.email|default:"-" }}</td>
-            <td>{{ talk.presented_on|date:"jS M Y"|default:"not yet" }}</td>
-        </tr>
-    {% endfor %}
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>{% trans "Title" %}</th>
+                    <th>{% trans "Speaker" %}</th>
+                    <th>{% trans "Email" %}</th>
+                    <th>{% trans "Presented" %}</th>
+                </tr>
+                {% for talk in talks %}
+                    <tr>
+                        <td>{{ talk.title }}</td>
+                        <td>{{ talk.speaker.name }}</td>
+                        <td>{{ talk.speaker.email|default:"-" }}</td>
+                        <td>{{ talk.presented_on|date:"jS M Y"|default:"not yet" }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 
+</div>
 {% endblock %}
