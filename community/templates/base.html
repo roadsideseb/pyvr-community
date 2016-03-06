@@ -38,6 +38,22 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+
+                        {% if request.user.is_authenticated and request.user.is_superuser %}
+                            {% url "talks:speaker-list" as speaker_list_url %}
+                            <li {% if request.path == speaker_list_url %}class="active"{% endif %}>
+                                <a href="{{ speaker_list_url }}">
+                                    {% trans "Speakers" %}
+                                </a>
+                            </li>
+                            {% url "talks:talk-list" as talk_list_url %}
+                            <li{% if request.path == talk_list_url %}class="active"{% endif %}>
+                                <a href="{{ talk_list_url }}">
+                                    {% trans "Talks" %}
+                                </a>
+                            </li>
+
+                        {% endif %}
                     </ul>
                     <ul class="nav navbar-nav pull-right">
 

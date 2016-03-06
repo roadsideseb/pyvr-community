@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>{% trans "Name" %}</th>
+        <th>{% trans "Email" %}</th>
+        <th>{% trans "Talk Proposals" %}</th>
+        <th>{% trans "Talk Given" %}</th>
+    </tr>
+    {% for speaker in speakers %}
+        <tr>
+            <td>{{ speaker.name }}</td>
+            <td>{{ speaker.email }}</td>
+            <td>{{ speaker.proposed_talks|length }}</td>
+            <td>{{ speaker.presented_talks|length }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
