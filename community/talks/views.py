@@ -1,10 +1,12 @@
 from django.views import generic
 
+from braces import views
+
 from ..member.models import Member
 from . import models
 
 
-class SpeakerList(generic.ListView):
+class SpeakerList(views.SuperuserRequiredMixin, generic.ListView):
     model = Member
     context_object_name = 'speakers'
     template_name = 'talks/speaker_list.html'
@@ -13,7 +15,7 @@ class SpeakerList(generic.ListView):
         return self.model.objects.filter(is_speaker=True)
 
 
-class TalkList(generic.ListView):
+class TalkList(views.SuperuserRequiredMixin, generic.ListView):
     model = models.Talk
     context_object_name = 'talks'
     template_name = 'talks/talk_list.html'
