@@ -10,8 +10,7 @@ class SpeakerList(generic.ListView):
     template_name = 'talks/speaker_list.html'
 
     def get_queryset(self):
-        speakers = self.model.objects.exclude(talks=None)
-        return speakers
+        return self.model.objects.filter(is_speaker=True)
 
 
 class TalkList(generic.ListView):

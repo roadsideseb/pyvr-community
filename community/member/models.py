@@ -88,6 +88,8 @@ class Member(models.Model):
 
     linkedin = models.URLField(_('LinkeIn URL'), blank=True)
 
+    is_speaker = models.BooleanField(_('is speaker'), default=False)
+
     current_position = models.CharField(_('current position'),
                                         max_length=400,
                                         blank=True)
