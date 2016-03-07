@@ -12,7 +12,7 @@ class SpeakerList(views.SuperuserRequiredMixin, generic.ListView):
     template_name = 'talks/speaker_list.html'
 
     def get_queryset(self):
-        return self.model.objects.filter(is_speaker=True)
+        return self.model.objects.filter(is_speaker=True).order_by('name')
 
 
 class TalkList(views.SuperuserRequiredMixin, generic.ListView):
