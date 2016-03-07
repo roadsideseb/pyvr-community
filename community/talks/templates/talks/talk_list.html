@@ -23,7 +23,13 @@
                 {% for talk in talks %}
                     <tr>
                         <td>{{ talk.title }}</td>
-                        <td>{{ talk.speaker.name }}</td>
+                        <td>
+                            <ul>
+                                {% for speaker in talk.speakers.all %}
+                                    <li> {{ speaker.name }} </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
                         <td>{{ talk.speaker.email|default:"-" }}</td>
                         <td>{{ talk.presented_on|date:"jS M Y"|default:"not yet" }}</td>
                     </tr>
