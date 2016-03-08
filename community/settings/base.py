@@ -101,6 +101,7 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
         'community.member',
         'community.company',
         'community.talks',
+        'community.events',
     ]
 
     # Absolute filesystem path to the directory that will hold user-uploaded

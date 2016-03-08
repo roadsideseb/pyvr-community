@@ -17,7 +17,6 @@
                 <tr>
                     <th>{% trans "Title" %}</th>
                     <th>{% trans "Speaker" %}</th>
-                    <th>{% trans "Email" %}</th>
                     <th>{% trans "Presented" %}</th>
                 </tr>
                 {% for talk in talks %}
@@ -26,11 +25,13 @@
                         <td>
                             <ul>
                                 {% for speaker in talk.speakers.all %}
-                                    <li> {{ speaker.name }} </li>
+                                    <li>
+                                        {# TODO link through to speaker page #}
+                                        {{ speaker.name }}
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </td>
-                        <td>{{ talk.speaker.email|default:"-" }}</td>
                         <td>{{ talk.presented_on|date:"jS M Y"|default:"not yet" }}</td>
                     </tr>
                 {% endfor %}
