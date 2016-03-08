@@ -32,7 +32,7 @@
                                 {% endfor %}
                             </ul>
                         </td>
-                        <td>{{ talk.presented_on|date:"jS M Y"|default:"not yet" }}</td>
+                        <td>{{ talk.event.date|date:"jS M Y"|default:"not yet" }}</td>
                     </tr>
                 {% endfor %}
             </table>

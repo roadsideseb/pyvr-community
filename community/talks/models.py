@@ -24,7 +24,11 @@ class Talk(models.Model):
                                       verbose_name=_('speaker'),
                                       related_name='talks')
 
-    presented_on = models.DateField(_('presented on'), null=True, blank=True)
+    event = models.ForeignKey('events.Event',
+                              verbose_name=_('presented at'),
+                              related_name='talks',
+                              null=True,
+                              blank=True)
 
     class Meta:
         verbose_name = _('talk')
