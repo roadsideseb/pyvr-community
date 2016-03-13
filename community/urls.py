@@ -10,6 +10,7 @@ urlpatterns = [
 
     url(r'^', include('community.users.urls', namespace='users')),
     url(r'^', include('community.talks.urls', namespace='talks')),
+    url(r'^', include('community.events.urls', namespace='events')),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
