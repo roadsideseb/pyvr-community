@@ -47,11 +47,16 @@ class Proposal(models.Model):
                               on_delete=models.SET_NULL,
                               null=True)
 
-    date = models.DateField(_('date'), null=True)
+    date = models.DateField(_('date'), blank=True, null=True)
 
     total_cost = models.DecimalField(_('total cost'),
                                      max_digits=12,
-                                     decimal_places=2)
+                                     decimal_places=2,
+                                     blank=True,
+                                     null=True)
+
+    def __str__(self):
+        return '{} for {}'.format(self.venue.name, self.event.name)
 
     class Meta:
         verbose_name = _('proposal')
@@ -71,6 +76,9 @@ class Venue(models.Model):
 
     contact = models.TextField(_('contact'), blank=True)
     notes = models.TextField(_('notes'), blank=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('venue')
