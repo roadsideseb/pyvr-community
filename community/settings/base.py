@@ -96,6 +96,7 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
         'djangosecure',
 
         'django_extensions',
+        'markdown_deux',
 
         'community.users',
         'community.member',

@@ -8,6 +8,7 @@ django-secure==1.0
 
 django-braces==1.4.0
 django-crispy-forms==1.4.0
+django-markdown-deux==1.0.5
 
 requests==2.8.1
 beautifulsoup4==4.4.1

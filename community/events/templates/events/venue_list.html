@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load markdown_deux_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{% trans "Venues" %}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Address" %}</th>
+                    <th>{% trans "Contact" %}</th>
+                    <th>{% trans "Capacity" %}</th>
+                    <th>{% trans "Proposals" %}</th>
+                </tr>
+                {% for venue in venues %}
+                    <tr>
+                        <td>{{ venue.name }}</td>
+                        <td>{{ venue.address|markdown|default:"--" }}</td>
+                        <td>{{ venue.contact|markdown|default:"--" }}</td>
+                        <td>{{ venue.capacity|default:"--" }}</td>
+                        <td>{{ venue.proposals.count|default:"0" }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

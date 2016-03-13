@@ -65,6 +65,8 @@ class Venue(models.Model):
     name = models.CharField(_('name'), max_length=500)
     slug = AutoSlugField(_('slug'), populate_from='name')
 
+    address = models.TextField(_('address'), blank=True)
+
     capacity = models.CharField(_('capacity'), max_length=200, blank=True)
 
     contact = models.TextField(_('contact'), blank=True)
@@ -73,3 +75,4 @@ class Venue(models.Model):
     class Meta:
         verbose_name = _('venue')
         verbose_name_plural = _('venues')
+        ordering = ('name',)

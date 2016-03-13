@@ -67,6 +67,13 @@
                                     {% trans "Events" %}
                                 </a>
                             </li>
+
+                            {% url "events:venue-list" as venue_list_url %}
+                            <li {% if request.path == venue_list_url %}class="active"{% endif %}>
+                                <a href="{{ venue_list_url }}">
+                                    {% trans "Venues" %}
+                                </a>
+                            </li>
                         {% endif %}
                     </ul>
                     <ul class="nav navbar-nav pull-right">
