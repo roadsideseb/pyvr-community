@@ -21,4 +21,4 @@ class TalkList(views.SuperuserRequiredMixin, generic.ListView):
     template_name = 'talks/talk_list.html'
 
     def get_queryset(self):
-        return self.model.objects.all().order_by('-presented_on', 'title')
+        return self.model.objects.all().order_by('-event__date', 'title')

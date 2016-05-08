@@ -117,11 +117,11 @@ class Member(models.Model):
 
     @cached_property
     def proposed_talks(self):
-        return self.talks.all().filter(presented_on=None)
+        return self.talks.all().filter(event__date=None)
 
     @cached_property
     def presented_talks(self):
-        return self.talks.all().exclude(presented_on=None)
+        return self.talks.all().exclude(event__date=None)
 
     class Meta:
         verbose_name = _('member')
