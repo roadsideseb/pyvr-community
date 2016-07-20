@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import uuid
 
 from django.db import models
@@ -10,6 +9,14 @@ class Company(models.Model):
     name = models.CharField(_('name'), max_length=300)
 
     website = models.URLField(_('website'), blank=True)
+
+    career_page = models.URLField(_('career page'), blank=True)
+
+    location = models.CharField(_('location'),
+                                default='Vancouver, BC',
+                                max_length=500)
+
+    address = models.TextField(_('address'), blank=True)
 
     def __str__(self):
         return self.name

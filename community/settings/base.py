@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import
 import os
 
 from configurations import Configuration, values
@@ -165,5 +163,4 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
 
     RAVEN_CONFIG = {
         'dsn': values.Value('', environ_name='RAVEN_DSN'),
-        'release': raven.fetch_git_sha(os.path.dirname(__file__)),
     }

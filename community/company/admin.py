@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.contrib import admin
 
 from . import models
@@ -7,5 +6,5 @@ from . import models
 @admin.register(models.Company)
 class ModelAdmin(admin.ModelAdmin):
     readonly_fields = ('uuid',)
-    list_display = ('name', 'website')
+    list_display = ('name', 'location', 'website')
     search_fields = ('name',)
