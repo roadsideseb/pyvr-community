@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+{% load i18n %}
+<div class="form-group {% if field.errors %}has-error{%endif %}">
+    {% if include_label %}
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+    {% endif %}
+
+    {% if field.field.required %}
+        <div class="input-group">
+    {% endif %}
+
+    {% render_field field placeholder=placeholder class+="form-control" %}
+
+    {% if field.field.required %}
+        <span class="input-group-addon"><small>{% trans "required" %}</small></span>
+    {% endif %}
+
+        {% if field.errors %}
+            <span class="help-block">
+                {{ field.errors }}
+            </span>
+        {% endif %}
+
+    {% if field.field.required %}
+        </div>
+    {% endif %}
+</div>

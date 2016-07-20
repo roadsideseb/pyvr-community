@@ -1,0 +1,36 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% include "partials/form-field.html" with field=field include_label=True %}
+                {% endfor %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <button class="btn btn-block btn-primary" type="submit">
+                    {% trans "Log in" %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt20">
+        <div class="col-md-offset-4 col-md-4">
+            <p>
+                {% trans "Forgot your password?" %}
+                <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.
+            </p>
+            <p>
+                {% trans "Not a member?" %}
+                <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

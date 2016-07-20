@@ -85,10 +85,11 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
     ]
 
     INSTALLED_APPS = [
+        'django.contrib.sites',
+        'registration',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
-        'django.contrib.sites',
         'django.contrib.messages',
         'django.contrib.admin',
         'django.contrib.flatpages',
@@ -97,6 +98,7 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
 
         'django_extensions',
         'markdown_deux',
+        'widget_tweaks',
 
         'community.users',
         'community.member',
@@ -104,6 +106,9 @@ class Base(mixins.DjangoLoggingMixin, Configuration):
         'community.talks',
         'community.events',
     ]
+
+    ACCOUNT_ACTIVATION_DAYS = 7
+    REGISTRATION_DEFAULT_FROM_EMAIL = 'seb@pyvr.org'
 
     # Absolute filesystem path to the directory that will hold user-uploaded
     # files.

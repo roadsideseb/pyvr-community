@@ -47,6 +47,11 @@ class DjangoLoggingMixin(object):
             'handlers': ['console'],
             'propagate': False,
         },
+        'registration': {
+            'level': 'INFO',
+            'handlers': ['console'],
+            'propagate': False,
+        },
     }
 
     # Specify the project specific loggers as a simple list if no specific

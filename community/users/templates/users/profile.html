@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "User Profile" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% blocktrans with username=request.user.username %}
+                <h1>Hey {{ username }}!</h1>
+            {% endblocktrans %}
+
+            <p>
+                {% blocktrans %} 
+                    Glad you are here. Hopefully we'll be able to make this
+                    an amazing visit for you.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

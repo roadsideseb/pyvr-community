@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% url reverse_name as home_url %}
+<li {% if request.path == home_url %}class="active"{% endif %}>
+    <a href="{{ home_url }}">
+        {{ title }}
+    </a>
+</li>
+
+
