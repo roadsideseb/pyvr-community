@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Company(models.Model):
-    uuid = models.UUIDField(_('uuid'), default=uuid.uuid4, unique=True)
+    uuid = models.UUIDField(_('UUID'), default=uuid.uuid4, unique=True)
     name = models.CharField(_('name'), max_length=300)
 
     website = models.URLField(_('website'), blank=True)
@@ -24,3 +24,4 @@ class Company(models.Model):
     class Meta:
         verbose_name = _('company')
         verbose_name_plural = _('companies')
+        ordering = ('name', 'location')
