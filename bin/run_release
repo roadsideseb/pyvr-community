@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "-----> Running release commands"
+
+# Applying Django migrations
+echo "-----> Applying database migrations"
+
+python manage.py migrate --noinput
+
+echo "-----> Release commands done"
