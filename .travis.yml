@@ -1,32 +1,21 @@
 language: python
 
 python:
-  - '3.4'
+  - '3.5'
 
 addons:
-    postgresql: "9.3"
+    postgresql: "9.5"
 
 services:
     - redis-server
-
-cache:
-  directories:
-    - $HOME/.pip-cache
 
 env:
   global:
     - DJANGO_SECRET_KEY='secret key just for testing'
     - DJANGO_CONFIGURATION='Travis'
-    - PIP_OPTS='--download-cache=$HOME/.pip-cache'
-  matrix:
-    - PYTEST_OPTS="--pep8 --cov community"
-    - PYTEST_OPTS="-m browser"
-
-before_install:
-  - cd community
 
 install:
-  - pip install -r deploy/requirements/ci.txt $PIP_OPTS
+  - pip install -r requirements-dev.txt
 
 before_script:
   - psql -U postgres -c "create extension postgis"
@@ -34,4 +23,4 @@ before_script:
   - psql -U postgres -c "create database test_db;"
 
 script:
-  - py.test $PYTEST_OPTS
+  - py.test --pep8 --cov community
