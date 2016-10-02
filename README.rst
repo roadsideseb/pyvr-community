@@ -1,9 +1,9 @@
-Manage the Python Community in Vancouver
+Python Community Website for Vancouver
 ===============================
 
 
-.. image:: https://travis-ci.com//community.svg
-    :target: https://travis-ci.com//community
+.. image:: https://travis-ci.org/elbaschid/pyvr-community.svg?branch=master
+    :target: https://travis-ci.org/elbaschid/pyvr-community
 
 
 Set Up Development Environment
